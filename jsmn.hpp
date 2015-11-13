@@ -14,8 +14,12 @@ using std::string;
 
 class Error : public std::exception {
 public:
-  explicit Error(const string& msg = "Error") : msg_(msg) { }
-  const char* what() const {
+  explicit Error(const string& msg = "Error")
+    : msg_(msg) {
+  }
+  virtual ~Error() throw() {
+  }
+  virtual const char* what() const throw() {
     return msg_.c_str();
   }
 private:
