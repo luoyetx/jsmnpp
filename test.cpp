@@ -15,6 +15,8 @@ void test_serialize() {
   a.Push("yo");
   o["c"] = a;
   o["self"] = o;
+  o["self"]["yo"] = "yo!";
+  o["c"][2] = "yoyo";
 
   cout << serialize(o) << endl;
 }

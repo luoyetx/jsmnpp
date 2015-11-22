@@ -163,12 +163,28 @@ public:
   }
   /*!
    * \breif data transform
-   * \tparam    must be one of supported type
+   * \tparam T    must be one of supported type
    */
   template<typename T>
   T& unwrap();
   template<typename T>
   const T& unwrap() const;
+  /*!
+   * \breif like a object
+   * \param key   key
+   * \return      value
+   * \throws      jsmn::Error if type is not Object
+   */
+  Value& operator[](const string& key);
+  const Value& operator[](const string& key) const;
+  /*!
+   * \breif like a array
+   * \param index   index
+   * \return        value
+   * \throws        jsmn::Error if type is not Array
+   */
+  Value& operator[](int index);
+  const Value& operator[](int index) const;
 
 private:
   /*! \breif internal values */

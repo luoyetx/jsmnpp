@@ -204,6 +204,24 @@ const Array& Value::unwrap<Array>() const {
   return a_;
 }
 
+Value& Value::operator[](const string& key) {
+  if (type_ != OBJECT) throw Error("Value type is not Object");
+  return o_[key];
+}
+const Value& Value::operator[](const string& key) const {
+  if (type_ != OBJECT) throw Error("Value type is not Object");
+  return o_[key];
+}
+
+Value& Value::operator[](int index) {
+  if (type_ != ARRAY) throw Error("Value type is not Array");
+  return a_[index];
+}
+const Value& Value::operator[](int index) const {
+  if (type_ != ARRAY) throw Error("Value type is not Array");
+  return a_[index];
+}
+
 Object parse(const char* file) {
   std::ifstream f(file);
   if (!f.is_open()) throw Error("File not exists!");
