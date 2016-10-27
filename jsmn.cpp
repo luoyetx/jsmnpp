@@ -143,6 +143,7 @@ Value& Value::operator=(const Value& other) {
   default:
     break;
   }
+  return *this;
 }
 Value::~Value() {
 }
